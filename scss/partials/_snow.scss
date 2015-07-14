@@ -1,0 +1,43 @@
+// snow
+
+$num-snow: 40;
+
+.snow {
+    width: 100%;
+    position: absolute;
+    top: -20px;
+    z-index: 100;
+
+    span {
+        display: block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        position: absolute;
+
+        @for $i from 1 through $num-snow {
+            &:nth-child(#{$i}) {
+                left: random(48) * 1%;
+                background: #ffffff;
+                @include animation(letItSnow-#{$i} 2.5s ease-in infinite);
+                @include animation-delay(random(5) * 0.85s);
+            }
+        }
+    }
+}
+
+@for $i from 1 through $num-snow {
+    @include keyframes(letItSnow-#{$i}) {
+        0% {
+            @include transform(translateY(0px));
+            opacity: 100%;
+        }
+        75% {
+            opacity: 100%;
+        }
+        100% {
+            @include transform(translateY(50px + random(400)));
+            opacity: 0;
+        }
+    }
+}

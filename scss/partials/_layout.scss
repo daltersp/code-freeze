@@ -1,0 +1,56 @@
+// layout
+* { box-sizing: border-box; }
+
+html,
+body {
+    height: 100%;
+    min-height: 100%;
+}
+
+body {
+    @include clearfix;
+}
+
+.content-container {
+    height: 100%;
+    width: 50%;
+    float: left;
+
+    .title,
+    .status {
+        text-align: center;
+        margin-bottom: 0;
+    }
+
+    .title {
+        padding: 15px 0;
+        color: #ffffff;
+        background: rgba(0, 0, 0, 0.2);
+    }
+
+    .status {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    &.alpha {
+        border-right: 1px solid #eeeeee;
+    }
+
+    &.open {
+        @include background-image(linear-gradient(#A8DBA8, #79BD9A));
+
+        .status {
+            color: #34694e;
+        }
+    }
+
+    &.closed {
+        @include background-image(linear-gradient(#aaffff 0%, #92F5F5 50%, #21CFD4 100%));
+
+        .status {
+            color: #13797c;
+        }
+    }
+}
