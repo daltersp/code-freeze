@@ -13,12 +13,12 @@ $num-snow: 40;
         width: 10px;
         height: 10px;
         border-radius: 50%;
+        background: #ffffff;
         position: absolute;
 
         @for $i from 1 through $num-snow {
             &:nth-child(#{$i}) {
-                left: random(48) * 1%;
-                background: #ffffff;
+                left: $i * 1.2%;
                 @include animation(letItSnow-#{$i} 2.5s ease-in infinite);
                 @include animation-delay(random(5) * 0.85s);
             }
@@ -36,7 +36,7 @@ $num-snow: 40;
             opacity: 100%;
         }
         100% {
-            @include transform(translateY(50px + random(400)));
+            @include transform(translateY(50px + random(450)));
             opacity: 0;
         }
     }
